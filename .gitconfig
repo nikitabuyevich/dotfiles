@@ -1,0 +1,24 @@
+[user]
+    name = Nikita Buyevich
+    email = nikita.buyevich@gmail.com
+
+[alias]
+    st = status -s
+    ci = commit
+    br = branch
+    bra = branch --all
+    co = checkout
+    df = diff --word-diff
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    who = shortlog -s --
+    fch = fetch --all --prune
+    ca = "!f(){ echo ADDING && git add . && echo COMMITTING && git commit -am \"$1\" && echo PULLING && git pull && echo PUSHING && git push; }; f"
+    mm = merge master --no-ff
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+
+[color]
+	ui = auto
